@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LearnerProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "goal": {
+      "type": ["string", "null"],
+      "description": "The learner's intended outcome, such as job switch, fundamentals, project building, or curiosity."
+    },
+    "topic": {
+      "type": ["string", "null"],
+      "description": "The main subject area the learner wants to study."
+    },
+    "current_level": {
+      "type": ["string", "null"],
+      "enum": ["beginner", "beginner_to_intermediate", "intermediate", "advanced", null]
+    },
+    "time_budget": {
+      "type": ["string", "null"],
+      "description": "Available time, for example 3 hours/week or short course only."
+    },
+    "learning_style": {
+      "type": ["string", "null"],
+      "enum": ["hands_on", "concept_first", "mixed", null]
+    },
+    "preferred_depth": {
+      "type": ["string", "null"],
+      "enum": ["practical_first", "fundamentals_first", "balanced", null]
+    },
+    "career_intent": {
+      "type": ["string", "null"],
+      "enum": ["job_switch", "current_role", "academic", "curiosity", null]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0
+    }
+  },
+  "required": [
+    "goal",
+    "topic",
+    "current_level",
+    "time_budget",
+    "learning_style",
+    "preferred_depth",
+    "career_intent",
+    "constraints",
+    "confidence_score"
+  ]
+}
